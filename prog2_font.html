@@ -1,0 +1,193 @@
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style type="text/css">
+.div1
+{
+	width:100%;
+	height:20%;
+}
+#dig
+{
+	text-align:right;
+}
+#id1
+{
+	text-align:center;
+}
+
+.div2
+{
+	width:50%;
+	height:80%;
+	float:left;
+	margin:auto;
+}
+
+.mySlides
+{
+	display:none;
+}
+.w3-button
+{
+	white-space:normal;
+}
+.w3-display-left
+{
+	position:absolute;
+	top:65%;
+	left:0%;
+	transform:translate(0%,-50%);
+	-ms-transform:translate(-0%,-50%)
+}
+.w3-display-right
+{
+	position:absolute;
+	top:65%;
+	right:50%;
+	transform:translate(0%,-50%);
+	-ms-transform:translate(0%,-50%)
+}
+.w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}
+
+.div3
+{
+	width:45%;
+	height:80%;
+	float:right;
+}
+</style>
+
+</head>
+
+<body onpageshow="starttime()" id="id8">
+
+<script type="text/javascript">
+function starttime()
+{
+	var today=new Date();
+	var h=today.getHours();
+	var m=today.getMinutes();
+	var s=today.getSeconds();
+	m=checkTime(m);
+	s=checkTime(s);
+	document.getElementById("dig").innerHTML=h+":"+m+":"+s;
+	var t=setTimeout(starttime,500);
+}
+function checkTime(i)
+{
+	if(i<10)
+	{
+		i="0"+i;
+	}
+	return i;
+}
+
+var slideIndex=1;
+showDivs(slideIndex);	
+function plusDivs(n)
+{
+	slideIndex=slideIndex+n;
+	var d=slideIndex+n;
+	showDivs(d);
+}
+function showDivs(n)
+{
+	var i;
+	var x=document.getElementsByClassName("mySlides");
+	if(n>x.length)
+	{
+		slideIndex=1
+	}
+	if(n<1)
+	{
+		slideIndex=x.length
+	};
+	for(i=0;i<x.length;i++)
+	{
+		x[i].style.display="none";
+	}
+	x[slideIndex-1].style.display="block";
+}
+
+function change()
+{
+	var a=document.getElementById("col").value;
+	var b=document.getElementById("font_fam").value;
+	var c=document.getElementById("font_size").value;
+	document.body.style.background=a;
+}
+</script>
+
+<div class="div1">
+<h1 id="id1">Webpage to change fonts</h1>
+<p id="dig"> </p>
+</div>
+
+<div class="div2">
+<h2 id="id2">Image slider</h2><br>
+<img class="mySlides" src="nature_img1.jpg" style="width:100%">
+<img class="mySlides" src="nature_img2.jpg" style="width:100%">
+<img class="mySlides" src="nature_img3.jpg" style="width:100%">
+<img class="mySlides" src="nature_img4.jpg" style="width:100%">
+<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
+<div class="div3">
+
+<h2 id="id3">Color Picker</h2>
+<form>
+<p id="id4">Select background color: </p>
+<input type="color" name="favcolor" value="#000000" id="col"><br>
+<p id="id5">Select Font Family: </p>
+<select id="font_fam">
+<optgroup style="font-family:arial">
+	<option>Arial</option>
+</optgroup>
+<optgroup style="font-family:verdana">
+	<option>Veranda</option>
+</optgroup>
+<optgroup style="font-family:helvetica">
+	<option>Helvetica</option>
+</optgroup>
+<optgroup style="font-family:cursive">
+	<option>Cursive</option>
+</optgroup>
+<optgroup style="font-family:verdana">
+	<option>Verdana</option>
+</optgroup>
+<optgroup style="font-family:Comic sans MS">
+	<option>Comic sans MS</option>
+</optgroup>
+<optgroup style="font-family:Wildwest">
+	<option>Wildwest</option>
+</optgroup>
+<optgroup style="font-family:Bedrock">
+	<option>Bedrock</option>
+</optgroup>
+<optgroup style="font-family:Times New Roman">
+	<option>Times New Roman</option>
+</optgroup>
+</select><br>
+<p id="id6">Select Font Size: </p>
+<select id="font_size">
+<option>xx-small</option>
+<option>x-small</option>
+<option>small</option>
+<option>medium</option>
+<option>large</option>
+<option>x-large</option>
+<option>xx-large</option>
+</select><br><br>
+<input type="button" name="change" onclick="return change()" id="id7" value="Change">
+</form>
+
+</div>
+</body>
+
+</html>
